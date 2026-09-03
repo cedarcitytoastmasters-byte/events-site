@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivation-a-thon | Cedar City Toastmasters</title>
+<meta name="description" content="Join Cedar City Toastmasters for the Motivation-a-thon on September 16 at the Cedar City Library — a full day of speeches, workshops, and inspiration.">
+<link href="assets/fonts.css" rel="stylesheet">
+<style>
+  /* ============================================================
+     BRAND TOKENS — Toastmasters Brand Manual v2.0
+     Do not change these unless the club's brand colors change.
+     ============================================================ */
+  :root{
+    --maroon: #772432;      /* True Maroon — secondary accent */
+    --maroon-dark: #5c1c27;
+    --blue: #004165;        /* Loyal Blue — branding background, primary headings */
+    --gray: #F5F5F5;        /* Fair Gray — backgrounds */
+    --yellow: #F2DF74;      /* Happy Yellow — accent rule */
+    --ink: #23262b;
+    --white: #ffffff;
+    --max-width: 1080px;
+    --radius: 10px;
+    --shadow: 0 6px 24px rgba(0,0,0,0.08);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.55;
+  }
+  h1, h2, h3, .brand-font{
+    font-family: 'Montserrat', Arial, sans-serif;
+    letter-spacing: 0.01em;
+  }
+  a{ color: var(--blue); }
+  img{ max-width: 100%; display:block; }
+  .wrap{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============================================================
+     HEADER — sunset path photo (from event flyer) with a Loyal
+     Blue tint overlay so white/black text stays readable.
+     ============================================================ */
+  .mat-event-banner{
+    background-image: linear-gradient(180deg, rgba(0,65,101,0.68), rgba(0,65,101,0.8)), url('assets/sunset-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .mat-event-banner::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:6px;
+    background: var(--yellow);
+  }
+  .header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 20px 0;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .club-brand{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .club-brand svg{ flex-shrink:0; }
+  .club-brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+  }
+  .club-brand-text strong{
+    font-family:'Montserrat', Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight:700;
+    color: #000000;
+  }
+  .club-brand-text span{
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight:600;
+  }
+  .header-nav a{
+    color: var(--white);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    margin-left:22px;
+    opacity:0.9;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+  }
+  .header-nav a:hover{ opacity:1; text-decoration:underline; }
+
+  .hero{
+    padding: 56px 0 64px;
+    text-align:center;
+  }
+  .hero .eyebrow{
+    display:inline-block;
+    background: var(--yellow);
+    color: var(--blue);
+    font-family:'Montserrat', Arial, sans-serif;
+    font-weight:700;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .hero h1{
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    font-weight: 800;
+    margin: 0 0 14px;
+    color: #000000;
+  }
+  .hero p.tagline{
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.95);
+    max-width: 620px;
+    margin: 0 auto 32px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+  .event-facts{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 14px;
+  }
+  .event-fact{
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+    font-size: 0.95rem;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+  }
+  .event-fact svg{ flex-shrink:0; }
+
+  /* ============================================================
+     AGENDA-CHANGE NOTICE (top of page, below header)
+     ============================================================ */
+  .agenda-alert{
+    background: var(--yellow);
+    color: var(--blue);
+    text-align:center;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight:600;
+  }
+  .agenda-alert strong{ color: var(--maroon); }
+
+  /* ============================================================
+     AGENDA SECTION WRAPPER (structural — keep as-is)
+     ============================================================ */
+  .agenda-section{
+    background: var(--gray);
+    padding: 56px 0 64px;
+  }
+  .section-heading{
+    text-align:center;
+    margin-bottom: 40px;
+  }
+  .section-heading h2{
+    color: var(--blue);
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight:800;
+    margin: 0 0 10px;
+  }
+  .section-heading .rule{
+    width: 64px;
+    height: 4px;
+    background: var(--yellow);
+    margin: 0 auto 16px;
+    border-radius: 2px;
+  }
+  .section-heading p{
+    color:#555;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .agenda-list{
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+  }
+  .agenda-item{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 6px solid var(--maroon);
+    padding: 18px 22px;
+    display:flex;
+    gap: 20px;
+    align-items:flex-start;
+    flex-wrap: wrap;
+  }
+  .agenda-item.is-break{
+    border-left-color: var(--yellow);
+    background: #fffdf4;
+  }
+  .agenda-time{
+    font-family:'Montserrat', Arial, sans-serif;
+    font-weight:700;
+    color: var(--blue);
+    min-width: 130px;
+    font-size: 0.98rem;
+  }
+  .agenda-body{ flex:1; min-width: 220px; }
+  .agenda-body h3{
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-weight:700;
+  }
+  .agenda-body p{
+    margin:0;
+    color:#555;
+    font-size: 0.95rem;
+  }
+  .agenda-body .presenter{
+    display:inline-block;
+    margin-top:6px;
+    font-size: 0.85rem;
+    font-weight:600;
+    color: var(--maroon);
+  }
+
+  /* ============================================================
+     INFO / LOCATION SECTION
+     ============================================================ */
+  .info-section{ padding: 56px 0; }
+  .info-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 720px){
+    .info-grid{ grid-template-columns: 1fr; }
+  }
+  .info-card h3{
+    color: var(--blue);
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+    font-weight:700;
+  }
+  .info-card p{ color:#444; margin:0 0 10px; }
+
+  /* ============================================================
+     CLOSING INFO BLOCK — avoids every WordPress/theme-builder
+     naming convention that auto-assigns content to a hidden
+     footer template region (footer, site-footer, colophon,
+     page-footer). Uses fully custom names instead.
+     ============================================================ */
+  .custom-page-footer{
+    background: var(--blue) !important;
+    color: #000000 !important;
+    padding: 40px 0 24px;
+  }
+  .cpf-top{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 20px;
+  }
+  .cpf-col h4{
+    font-family:'Montserrat', Arial, sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--yellow);
+    margin: 0 0 12px;
+  }
+  .cpf-col p, .cpf-col a{
+    color: #000000 !important;
+    font-size: 0.92rem;
+    text-decoration:none;
+    line-height: 1.7;
+  }
+  .cpf-col a:hover{ text-decoration:underline; }
+  .cpf-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #000000 !important;
+  }
+</style>
+</head>
+<body>
+<!-- ================================================================
+     HEADER (structural / branded — safe to edit text, keep the markup)
+     ================================================================ -->
+<div class="mat-event-banner">
+  <div class="wrap header-top">
+    <div class="club-brand">
+      <!-- Simple inline Toastmasters-style mark: microphone + speech burst -->
+      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+        <circle cx="21" cy="21" r="20" stroke="#F2DF74" stroke-width="2"></circle>
+        <rect x="17" y="9" width="8" height="15" rx="4" fill="#F2DF74"></rect>
+        <path d="M12 20v2a9 9 0 0 0 18 0v-2" stroke="#F2DF74" stroke-width="2" stroke-linecap="round"></path>
+        <line x1="21" y1="31" x2="21" y2="35" stroke="#F2DF74" stroke-width="2" stroke-linecap="round"></line>
+        <line x1="15" y1="35" x2="27" y2="35" stroke="#F2DF74" stroke-width="2" stroke-linecap="round"></line>
+      </svg>
+      <div class="club-brand-text">
+        <strong>Cedar City Toastmasters</strong>
+        <span>Club #00005384</span>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html#agenda">Agenda</a>
+      <a href="index.html#location">Location</a>
+    </nav>
+  </div>
+
+  <div class="wrap hero">
+    <span class="eyebrow">Special Event</span>
+    <h1>The Motivation‑a‑thon</h1>
+    <p class="tagline">A full day of speeches, stories, and skill-building designed to leave you fired up and ready to lead.</p>
+
+    <div class="event-facts">
+      <div class="event-fact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        September 16
+      </div>
+      <div class="event-fact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        10:00 AM – 6:00 PM
+      </div>
+      <div class="event-fact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Cedar City Library, 303 N 100 E, Cedar City, UT 84721
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     AGENDA-CHANGE NOTICE — top of page, below the header
+     ================================================================ -->
+<div class="agenda-alert">
+  <div class="wrap">
+    <strong>Please note:</strong> the agenda is subject to change up to the day of the event — check back for the most recent schedule.
+  </div>
+</div>
+
+<!-- ================================================================
+     AGENDA SECTION — EDITABLE CONTENT BLOCK
+     Hand this section to whoever is managing the schedule.
+     They can safely add, remove, reorder, or edit any <div class="agenda-item">
+     without touching the banner or closing info block above/below.
+
+     HOW TO ADD A NEW AGENDA ITEM:
+     Copy one whole block from <div class="agenda-item"> to </div> and edit:
+       - agenda-time: the time slot, e.g. "1:00 – 1:30 PM"
+       - <h3>: the segment or speech title
+       - <p>: a one-line description
+       - .presenter (optional): "Presented by ___" — delete the line if not needed
+     Add class="is-break" to the outer div for meals/breaks to give it a
+     lighter, accent-colored look instead of the standard blue bar.
+     ================================================================ -->
+<section class="agenda-section" id="agenda">
+  <div class="wrap">
+    <div class="section-heading">
+      <h2>Event Agenda</h2>
+      <div class="rule"></div>
+      <p>September 16 · Cedar City Library · 10:00 AM – 6:00 PM</p>
+    </div>
+
+    <!-- AGENDA CONTENT START — edit everything inside .agenda-list -->
+    <div class="agenda-list">
+
+      <div class="agenda-item">
+        <div class="agenda-time">10:00 – 10:15 AM</div>
+        <div class="agenda-body">
+          <h3>Welcome</h3>
+          <p class="presenter">Presented by Debby Adair</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">10:15 – 10:45 AM</div>
+        <div class="agenda-body">
+          <h3>The Crazy Person&#8217;s Guide to Starting a Business</h3>
+          <p class="presenter">Presented by Pandora Saunders</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">10:45 – 11:00 AM</div>
+        <div class="agenda-body">
+          <h3>Hurts, Hangups, Habits</h3>
+          <p class="presenter">Presented by Jared Martin</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">11:00 – 11:30 AM</div>
+        <div class="agenda-body">
+          <h3>Adam Wilcock</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">11:30 AM – 12:00 PM</div>
+        <div class="agenda-body">
+          <h3>The Path</h3>
+          <p class="presenter">Presented by Judah Becker</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">12:00 – 12:30 PM</div>
+        <div class="agenda-body">
+          <h3>Katie Becker</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item is-break">
+        <div class="agenda-time">12:30 – 1:00 PM</div>
+        <div class="agenda-body">
+          <h3>Lunch (On Your Own)</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">1:00 – 1:30 PM</div>
+        <div class="agenda-body">
+          <h3>The Motivation of Music</h3>
+          <p class="presenter">Presented by Rick Adair</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">1:30 – 1:45 PM</div>
+        <div class="agenda-body">
+          <h3>Yvonne Meachum</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">1:45 – 2:15 PM</div>
+        <div class="agenda-body">
+          <h3>You Might Think that&#8217;s the End of the Story, but it&#8217;s Not</h3>
+          <p class="presenter">Presented by Debby Adair</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">2:15 – 2:45 PM</div>
+        <div class="agenda-body">
+          <h3>A Better Relationship with Your Money, Your Body &amp; The Person Who Drives You Crazy</h3>
+          <p class="presenter">Presented by Terri Hayes</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">2:45 – 3:15 PM</div>
+        <div class="agenda-body">
+          <h3>Angel Martin</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">3:15 – 3:30 PM</div>
+        <div class="agenda-body">
+          <h3>Cassie Easley</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">3:30 – 3:45 PM</div>
+        <div class="agenda-body">
+          <h3>Toastmasters Can Change Your Life</h3>
+          <p class="presenter">Presented by Debby Adair</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">3:45 – 4:15 PM</div>
+        <div class="agenda-body">
+          <h3>Jeff Jenson</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">4:15 – 4:45 PM</div>
+        <div class="agenda-body">
+          <h3>James Thelin</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">4:45 – 5:00 PM</div>
+        <div class="agenda-body">
+          <h3>Ray Vance</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">5:00 – 5:15 PM</div>
+        <div class="agenda-body">
+          <h3>Cassie Easley</h3>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">5:15 – 5:30 PM</div>
+        <div class="agenda-body">
+          <h3>TBA</h3>
+          <p>Details to be announced.</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">5:30 – 6:00 PM</div>
+        <div class="agenda-body">
+          <h3>Thank You&#8217;s, Auction Results &amp; Closing</h3>
+          <p class="presenter">Presented by Debby Adair</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- AGENDA CONTENT END -->
+  </div>
+</section>
+
+<!-- ================================================================
+     LOCATION / INFO (structural — edit text as needed)
+     ================================================================ -->
+<section class="info-section" id="location">
+  <div class="wrap info-grid">
+    <div class="info-card">
+      <h3>When &amp; Where</h3>
+      <p><strong>Date:</strong> Wednesday, September 16</p>
+      <p><strong>Time:</strong> 10:00 AM – 6:00 PM</p>
+      <p><strong>Location:</strong> Cedar City Library, 303 North 100 East, Cedar City, Utah 84721</p>
+      <p>Public parking is available on-site.</p>
+    </div>
+    <div class="info-card">
+      <h3>About Cedar City Toastmasters</h3>
+      <p>Cedar City Toastmasters (Club #00005384) helps members build confidence in public speaking and leadership in a supportive, encouraging environment. The Motivation-a-thon brings that same spirit to a full day of inspiration, open to members and the community.</p>
+      <p>Questions about the event? Email <a href="mailto:debby@debbyadair.com">debby@debbyadair.com</a> or visit <a href="https://cedarcitytoastmasters.com/" target="_blank" rel="noopener">cedarcitytoastmasters.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CLOSING INFO BLOCK (structural — safe to edit text, keep the
+     markup). This is a plain <div> using fully custom class names
+     (no "footer", "site-footer", "colophon", or "page-footer")
+     so no theme or page-builder template rule can auto-detect it
+     as a footer region and hide it.
+     ================================================================ -->
+<div class="custom-page-footer">
+  <div class="wrap">
+    <div class="cpf-top">
+      <div class="cpf-col">
+        <h4>Cedar City Toastmasters</h4>
+        <p>Club #00005384 / CB-00005384</p>
+        <p>Meets Thursdays at 7:00 AM<br>Cedar City Visitor&#8217;s Center</p>
+      </div>
+      <div class="cpf-col">
+        <h4>Motivation-a-thon</h4>
+        <p>September 16 · 10:00 AM – 6:00 PM</p>
+        <p>Cedar City Library<br>303 North 100 East<br>Cedar City, UT 84721</p>
+      </div>
+      <div class="cpf-col">
+        <h4>Contact</h4>
+        <p><a href="mailto:debby@debbyadair.com">debby@debbyadair.com</a></p>
+        <p><a href="https://cedarcitytoastmasters.com/" target="_blank" rel="noopener">cedarcitytoastmasters.com</a></p>
+      </div>
+    </div>
+    <div class="wrap cpf-bottom">
+      <span>© 2026 Cedar City Toastmasters. All rights reserved.</span>
+      <span>Where Leaders Are Made</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
